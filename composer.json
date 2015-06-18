@@ -1,0 +1,23 @@
+{
+    "name": "vaseninm/yii2-to-process-sender",
+    "description": "Yii 2 to process sender",
+    "keywords": ["yii2", "process","sender", "redis"]
+    "homepage": "https://github.com/vaseninm/yii2-to-process-sender",
+    "type": "project",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/vaseninm/yii2-to-process-sender/issues?state=open",
+        "source": "https://github.com/vaseninm/yii2-to-process-sender"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-redis": "*",
+    },
+    "require-dev": {
+        "codeception/codeception": "*",
+        "codeception/specify": "*",
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+    },
+}
