@@ -1,7 +1,7 @@
 {
     "name": "vaseninm/yii2-to-process-sender",
     "description": "Yii 2 to process sender",
-    "keywords": ["yii2", "process","sender", "redis"]
+    "keywords": ["yii2", "process","sender", "redis"],
     "homepage": "https://github.com/vaseninm/yii2-to-process-sender",
     "type": "project",
     "license": "MIT",
