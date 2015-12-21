@@ -3,6 +3,7 @@ namespace vaseninm\Yii2ToProcessSender\redis;
 
 use Codeception\Exception\ConfigurationException;
 use vaseninm\Yii2ToProcessSender\Sender as AbstractSender;
+use yii\base\Component;
 use yii\helpers\Json;
 use yii\redis\Connection;
 
@@ -18,7 +19,7 @@ class Sender extends AbstractSender {
         $connection = $this->getConnection($process);
 
         $connection->executeCommand('publish', [
-            self::PREFIX ,
+            self::PREFIX . $process,
             Json::encode([
                 'route' => $route,
                 'params' => $params,
@@ -41,9 +42,10 @@ class Sender extends AbstractSender {
         if (! array_key_exists($process, $this->_connection)) {
 
             if (isset($this->processes[$process])) {
-                $this->_connection[$process] = \Yii::$app->get($process);
+                $this->_connection[$process] = \Yii::$app->get($this->processes[$process]);
             } else {
-                $this->_connection[$process] = new Connection($this->processes[$process]);
+                $class = $this->processes[$process]['class'];
+                $this->_connection[$process] = new $class($this->processes[$process]);
             }
         }
 
